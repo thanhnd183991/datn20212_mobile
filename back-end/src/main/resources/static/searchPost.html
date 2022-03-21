@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+<html>
+<head>
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="./css/common.css">
+  <link rel="stylesheet" type="text/css" href="./css/searchPost.css">
+  <link rel="stylesheet" type="text/css" href="./css/home.css">
+  <!--<link rel="stylesheet" type="text/css" href="./css/post.css">     -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
+  <script src="./js/searchPost.js" defer></script>
+</head>
+
+<body class="body">
+    <div class="navigation-bar">
+        <nav class="nav_bar">
+            <a href="home.html" class="">
+                <!-- <i class="material-icons nav-icon">home</i> 
+                <span class="nav-text">Home</span> -->
+                <img src="./images/logo-cut.jpg" alt="logo" class="logo">
+            </a>
+            <!-- <a href="" class="nav-link">
+                 <i class="material-icons nav-icon">person_search</i> 
+                <span class="nav-text">Search User</span> 
+                
+            </a> -->
+            <a href="./chat.html" class="nav-link">
+                <i class="material-icons nav-icon">post_add</i> 
+                <span class="nav-text">Chat</span>
+            </a>
+            <a href="requestFriend.html" class="nav-link">
+                <i class="material-icons nav-icon">person_add</i> 
+                <span class="nav-text">Requested Friend</span>
+            </a>
+            <a href="profile.html" class="nav-link" onclick="getProfile()">
+                <i class="material-icons nav-icon">account_circle</i> 
+                <span class="nav-text">Profile</span>
+            </a>
+            
+            <a href="searchPost.html" class="nav-link">
+                <i class="material-icons nav-icon">search</i> 
+                <span class="nav-text">Search Post</span>
+            </a>
+            <a href="index.html" onclick="logout()" class="nav-link">
+                <i class="material-icons nav-icon">logout</i> 
+                <span class="nav-text">Logout</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="content">
+       <div class="searchbar">
+            <input type="text" class="search_input" id = "search_input">
+            <button class="btn_search" onclick="processSearch()">
+                <i class="material-icons">search</i> 
+                <span>search</span>
+            </button>
+       </div>
+       <div class="notFound" id="notFound"><p>Not Found</p></div>
+       <div class="posts"></div>
+    </div>
+
+    <script>
+
+        function logout(){
+            document.cookie = "Auth=;"
+            localStorage.clear();
+        }
+    
+    </script>
+    
+</body>
+
+
+
+</html>

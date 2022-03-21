@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./images/logo.png" alt="logo" class="logo" >
+</body>
+
+<style>
+    .logo {
+        margin-top: 15%;
+        height: 50%;
+        margin-left: 40%;
+    }
+</style>
+
+<!-- <script src="./js/connectSocket.js"></script> -->
+
+<script>
+        function getCookie(cookiename) {
+                var re = new RegExp("=([^;]+)");
+                var value = re.exec(document.cookie);
+                return (value != null) ? unescape(value[1]) : null;
+            }
+        var authen = getCookie("auth");
+        function loadAvaterURL() {
+            var loadProfileAPI = "http://localhost:8081/api/private/profile/edit";
+
+            fetch(loadProfileAPI, {
+                headers: {
+                    "Authorization": authen,
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                }
+            }).then((response) => {
+                if (!response.ok) {
+                    throw new Error("Can't load profile user");
+                }
+                return response.json();
+            }).then((data) => {
+                var { profile_Image } = data;
+                localStorage.setItem("avatarURL", profile_Image.uri);
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
+        loadAvaterURL();
+
+
+        setTimeout(() => {
+            window.location.href = "home.html"
+        }, 1000);
+</script>
+</html>

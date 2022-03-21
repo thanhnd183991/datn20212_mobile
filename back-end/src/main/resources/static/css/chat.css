@@ -1,0 +1,130 @@
+.container {
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    overflow: auto;
+    display: flex;
+    flex-shrink: row;
+    margin-top: 5%;
+}
+
+.list-user-box {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border-right: gray 1px solid;
+    box-shadow: 5px 5px 7px -7px rgba(0, 0, 0, 0.75);
+    overflow-y: scroll;
+}
+
+.user-box {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 3%;
+    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+}
+
+.user-box:hover {
+    background-color: rgb(216, 211, 211);
+}
+
+.name-state {
+    margin-left: 5%;
+}
+
+.thumbnail-avatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+h3 {
+    margin-top: -5%;
+    font-size: 15px;
+    color: gray;
+}
+
+.chat-box {
+    height: 100%;
+    width: 69%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    box-shadow: -5px 0px 7px -7px rgba(0, 0, 0, 0.75);
+}
+
+.chat-content {
+    /* min-height: 60%; */
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+}
+
+.message {
+    padding: 10px 15px 10px 15px;
+    border-radius: 10%;
+    margin-bottom: 5px;
+}
+
+.friend-message {
+    float: left;
+    margin-left: 5%;
+    background-color: rgb(184, 180, 180);
+}
+
+.my-message {
+    float: right;
+    margin-right: 5%;
+    color: rgb(241, 237, 237);
+    background-color: rgb(36, 36, 238);
+}
+
+.send-message-box{
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+}
+
+.mess-text-input {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 7%;
+    padding-left: 15px;
+    width: 80%;
+    border-radius: 20px;
+}
+
+button {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 2%;
+    border-radius: 10px;
+    width: 7%;
+    color: white;
+    background-color: rgb(36, 36, 238);
+    cursor: pointer;
+}
+
+#searchUserInput {
+    margin-left: 10%;
+    width: 80%;
+    height: 20px;
+    font-size: 18px;
+    padding-left: 10px;
+    border-radius: 15px;
+}
+
+#searchUserInput:hover {
+    background-color: rgb(252, 251, 235);
+}
