@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `images_of_post`
+-- Table structure for table `media_of_post`
 --
 
-DROP TABLE IF EXISTS `images_of_post`;
+DROP TABLE IF EXISTS `media_of_post`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `images_of_post` (
+CREATE TABLE `media_of_post` (
   `post_id` int NOT NULL,
-  `image_id` int NOT NULL,
-  PRIMARY KEY (`post_id`,`image_id`),
-  KEY `ImageOfPost_image_id_idx` (`image_id`),
-  CONSTRAINT `ImageOfPost_image_id` FOREIGN KEY (`image_id`) REFERENCES `media` (`id`),
-  CONSTRAINT `ImageOfPost_post_id` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`)
+  `media_id` int NOT NULL,
+  PRIMARY KEY (`post_id`,`media_id`),
+  KEY `ImageOfPost_image_id_idx` (`media_id`),
+  CONSTRAINT `mediaOfPost_media_id` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`),
+  CONSTRAINT `mediaOfPost_post_id` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `images_of_post`
+-- Dumping data for table `media_of_post`
 --
 
-LOCK TABLES `images_of_post` WRITE;
-/*!40000 ALTER TABLE `images_of_post` DISABLE KEYS */;
-/*!40000 ALTER TABLE `images_of_post` ENABLE KEYS */;
+LOCK TABLES `media_of_post` WRITE;
+/*!40000 ALTER TABLE `media_of_post` DISABLE KEYS */;
+/*!40000 ALTER TABLE `media_of_post` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-22 23:34:00
+-- Dump completed on 2022-03-23  0:22:41
