@@ -21,12 +21,13 @@ import {
 import EmojiSelector from "react-native-emoji-selector";
 import { v4 as uuidv4 } from "uuid";
 import ImageOne from "../ImageOne";
+import MessageReply from "../MessageReply";
 import { getBlob } from "../../utils/media/getBlob";
 import AudioPlayer from "../AudioPlayer";
 import { imagePickerArray } from "../../utils/media/image";
 import { startRecording, stopRecording } from "../../utils/media/audio";
 
-const MessageInput = ({ chatRoom }) => {
+const MessageInput = ({ chatRoom, messageReplyTo, removeMessageReplyTo }) => {
   const [message, setMessage] = useState("");
   const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
   const [images, setImages] = useState([]);
@@ -88,6 +89,7 @@ const MessageInput = ({ chatRoom }) => {
     setImages([]);
     setProgress(0);
     setSoundURI(null);
+    removeMessageReplyTo();
   };
 
   const takePhoto = async () => {
@@ -142,6 +144,33 @@ const MessageInput = ({ chatRoom }) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       keyboardVerticalOffset={100}
     >
+      {messageReplyTo && (
+        <View
+          style={{
+            backgroundColor: "#f2f2f2",
+            padding: 5,
+            flexDirection: "row",
+            alignSelf: "stretch",
+            justifyContent: "space-between",
+            borderRadius: 10,
+          }}
+        >
+          <View style={{ flex: 1 }}>
+            <MessageReply
+              messageReply={messageReplyTo}
+              // isMe={messageReplyTo.user.id === "u1"}
+            />
+          </View>
+          <Pressable onPress={() => removeMessageReplyTo()}>
+            <AntDesign
+              name="close"
+              size={24}
+              color="black"
+              style={{ margin: 5 }}
+            />
+          </Pressable>
+        </View>
+      )}
       {images.length > 0 && (
         <ScrollView
           horizontal
@@ -218,9 +247,9 @@ const MessageInput = ({ chatRoom }) => {
 
         <Pressable onPress={onPress} style={styles.buttonContainer}>
           {message || images.length > 0 || soundURI ? (
-            <Ionicons name="send" size={18} color="white" />
+            <Ionicons name="send" size={24} color="#3777f0" />
           ) : (
-            <AntDesign name="plus" size={20} color="white" />
+            <AntDesign name="like1" size={24} color="#3777f0" />
           )}
         </Pressable>
       </View>
@@ -266,8 +295,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: 40,
     height: 40,
-    backgroundColor: "#3777f0",
-    borderRadius: 25,
+    // backgroundColor: "#3777f0",
+    // borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
   },

@@ -2,7 +2,13 @@ import React from "react";
 import { Text, TouchableOpacity, SafeAreaView } from "react-native";
 import { Avatar, Button } from "react-native-elements";
 
-const ItemUser = ({ user, handleClick, type, handleSendRequestUser }) => (
+const ItemUser = ({
+  user,
+  added,
+  handleClick,
+  type,
+  handleSendRequestUser,
+}) => (
   <SafeAreaView
     style={{
       flexDirection: "row",
@@ -35,7 +41,7 @@ const ItemUser = ({ user, handleClick, type, handleSendRequestUser }) => (
         onPress={() => handleSendRequestUser()}
         type="outline"
         title="Xóa bạn"
-        buttonStyle={{ paddingVertical: 1 }}
+        buttonStyle={{ paddingVertical: 1, borderRadius: 10 }}
       />
     )}
     {type === "block" && (
@@ -43,7 +49,23 @@ const ItemUser = ({ user, handleClick, type, handleSendRequestUser }) => (
         type="outline"
         title="Hủy chặn"
         onPress={() => handleSendRequestUser()}
-        buttonStyle={{ paddingVertical: 1 }}
+        buttonStyle={{ paddingVertical: 1, borderRadius: 10 }}
+      />
+    )}
+    {type === "kick" && (
+      <Button
+        type="outline"
+        title="Xóa"
+        onPress={() => handleSendRequestUser()}
+        buttonStyle={{ paddingVertical: 1, borderRadius: 10 }}
+      />
+    )}
+    {type === "addToRoom" && (
+      <Button
+        type="outline"
+        title={added ? "Đã thêm" : "Thêm"}
+        onPress={!added && handleSendRequestUser}
+        buttonStyle={{ paddingVertical: 1, borderRadius: 10 }}
       />
     )}
   </SafeAreaView>

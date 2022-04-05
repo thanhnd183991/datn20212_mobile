@@ -20,7 +20,7 @@ const ListUserScreen = ({ route, navigation }) => {
             user={item}
             handleClick={() => navigation.push(ProfileRoute)}
             handleSendRequestUser={handleSendRequestUser}
-            type={route.params.type}
+            type={route?.params?.type || ""}
           />
         )}
         keyExtractor={(item, index) => index}

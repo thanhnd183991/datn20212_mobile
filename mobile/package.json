@@ -29,6 +29,8 @@
     "react-native-emoji-selector": "^0.2.0",
     "react-native-gesture-handler": "~2.1.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-lightbox-v2": "^0.9.0",
+    "react-native-looped-carousel": "^0.1.13",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
     "react-native-vector-icons": "^9.1.0",

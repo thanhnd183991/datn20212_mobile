@@ -18,6 +18,10 @@ export const InformationGroupRoute = "Thông tin nhóm";
 export const CalendarRoute = "Lịch";
 //thong ke
 export const StatisticRoute = "Thống kê";
+//thong bao
+export const NotificationRoute = "Thông báo";
 // chat
 export const ListChatRoute = "Danh sách chat";
 export const ChatRoute = "Trò chuyện";
+export const ChatInfoRoute = "Thông tin trò chuyện";
+export const CreateChatRoute = "Tạo trò chuyện";

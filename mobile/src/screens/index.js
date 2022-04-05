@@ -4,6 +4,7 @@ export { default as CalendarScreen } from "./root/CalendarScreen";
 export { default as StatisticScreen } from "./root/StatisticScreen";
 export { default as ListChatScreen } from "./root/ListChatScreen";
 export { default as ListGroupScreen } from "./root/ListGroupScreen";
+export { default as NotificationScreen } from "./root/NotificationScreen";
 
 //user
 export { default as LoginScreen } from "./user/LoginScreen";
@@ -21,6 +22,8 @@ export { default as TextEditorNewPostScreen } from "./post/TextEditorNewPostScre
 
 // chat
 export { default as ChatScreen } from "./chat/ChatScreen";
+export { default as CreateChatScreen } from "./chat/CreateChatScreen";
+export { default as ChatInfoScreen } from "./chat/ChatInfoScreen";
 
 // test
 export { default as TestScreen } from "./TestScreen";

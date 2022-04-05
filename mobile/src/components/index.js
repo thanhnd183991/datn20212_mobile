@@ -10,3 +10,4 @@ export { default as ItemUser } from "./ItemUser";
 export { default as ChatRoomItem } from "./ChatRoomItem";
 export { default as Message } from "./Message";
 export { default as MessageInput } from "./MessageInput";
+export { default as MyModal } from "./MyModal";

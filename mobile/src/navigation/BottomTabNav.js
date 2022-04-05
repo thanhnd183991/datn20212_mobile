@@ -6,8 +6,10 @@ import {
   ListGroupRoute,
   HomeRoute,
   ListChatRoute,
+  ListUserRoute,
   StatisticRoute,
   TextEditorNewPostRoute,
+  NotificationRoute,
 } from "../constants/PathRoutes";
 import {
   CalendarScreen,
@@ -42,7 +44,7 @@ export default function BottomTabNavigator() {
               type="font-awesome"
               size={24}
               color="gray"
-              onPress={() => navigation.navigate(TextEditorNewPostRoute)}
+              onPress={() => navigation.navigate(NotificationRoute)}
             />
 
             <Badge
@@ -122,7 +124,7 @@ export default function BottomTabNavigator() {
       <BottomTab.Screen
         name={ListChatRoute}
         component={ListChatScreen}
-        options={{
+        options={({ navigation }) => ({
           tabBarIcon: ({ color }) => (
             <Icon
               name="comments"
@@ -132,7 +134,8 @@ export default function BottomTabNavigator() {
               color="gray"
             />
           ),
-          headerRight: ({ navigation }) => (
+          tabBarBadge: 3,
+          headerRight: () => (
             <View
               style={{
                 flexDirection: "row",
@@ -147,7 +150,7 @@ export default function BottomTabNavigator() {
                   type="font-awesome"
                   size={24}
                   color="gray"
-                  onPress={() => navigation.navigate(TextEditorNewPostRoute)}
+                  onPress={() => navigation.navigate(NotificationRoute)}
                 />
 
                 <Badge
@@ -175,12 +178,12 @@ export default function BottomTabNavigator() {
                   type="font-awesome"
                   size={24}
                   color="gray"
-                  onPress={() => navigation.navigate(TextEditorNewPostRoute)}
+                  onPress={() => navigation.navigate(ListUserRoute)}
                 />
               </View>
             </View>
           ),
-        }}
+        })}
       />
     </BottomTab.Navigator>
   );
