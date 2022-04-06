@@ -1,5 +1,4 @@
 export { default as CreatePost } from "./CreatePost";
-export { default as ImagePicker } from "./ImagePicker";
 export { default as ActionButtons } from "./ActionButtons";
 export { default as VideoPlayer } from "./VideoPlayer";
 export { default as Post } from "./Post";
@@ -13,3 +12,4 @@ export { default as MessageInput } from "./MessageInput";
 export { default as MyModal } from "./MyModal";
 export { default as DatePicker } from "./DatePicker";
 export { default as ItemStat } from "./ItemStat";
+export { default as HeaderRight } from "./HeaderRight";

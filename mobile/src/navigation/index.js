@@ -74,69 +74,6 @@ export default function StackScreen() {
           name={RootRoute}
           component={BottomTabNavigator}
         />
-        <Stack.Screen name={CreateChatRoute} component={CreateChatScreen} />
-        <Stack.Screen name={StatisticRoute} component={StatisticScreen} />
-        <Stack.Screen name={CalendarRoute} component={CalendarScreen} />
-        <Stack.Screen name={ListCalendarRoute} component={ListCalendarScreen} />
-        <Stack.Screen
-          name={DetailCalendarRoute}
-          component={DetailCalendarScreen}
-        />
-        <Stack.Screen
-          name={CreateCalendarRoute}
-          component={CreateCalendarScreen}
-        />
-
-        <Stack.Group screenOptions={{ presentation: "modal" }}>
-          <Stack.Screen name={ChatInfoRoute} component={ChatInfoScreen} />
-          <Stack.Screen
-            name={TextEditorNewPostRoute}
-            options={({}) => ({
-              headerShown: false,
-            })}
-            component={TextEditorNewPostScreen}
-          />
-          <Stack.Screen
-            name={CommentRoute}
-            options={({}) => ({})}
-            component={CommentScreen}
-          />
-        </Stack.Group>
-        <Stack.Screen name={ProfileRoute} component={ProfileScreen} />
-        <Stack.Screen name={ListUserRoute} component={ListUserScreen} />
-        <Stack.Screen
-          name={NotificationRoute}
-          options={{}}
-          component={NotificationScreen}
-        />
-        <Stack.Group
-          screenOptions={({ route, navigation }) => ({
-            gestureDirection: "vertical",
-            transitionSpec: {
-              open: config,
-              close: config,
-            },
-          })}
-        >
-          <Stack.Screen
-            // options={({ route }) => ({
-            //   title: route.params.group.title,
-            // })}
-            name={GroupRoute}
-            component={GroupScreen}
-          />
-          <Stack.Screen
-            // options={({ route }) => ({
-            //   title: route.params.group.title,
-            // })}
-            name={InformationGroupRoute}
-            component={InformationGroupScreen}
-          />
-        </Stack.Group>
-
-        <Stack.Screen name={HomeRoute} component={HomeScreen} />
-        <Stack.Screen name={EditProfileRoute} component={EditProfileScreen} />
-        <Stack.Screen name={LoginRoute} component={LoginScreen} />
         <Stack.Screen
           name={ChatRoute}
           options={({ navigation }) => ({
@@ -162,6 +99,42 @@ export default function StackScreen() {
           })}
           component={ChatScreen}
         />
+        {/* modal no bottom tab */}
+        <Stack.Group screenOptions={{ presentation: "modal" }}>
+          <Stack.Screen name={CreateChatRoute} component={CreateChatScreen} />
+          <Stack.Screen
+            name={DetailCalendarRoute}
+            component={DetailCalendarScreen}
+          />
+          <Stack.Screen
+            name={CreateCalendarRoute}
+            component={CreateCalendarScreen}
+          />
+          <Stack.Screen name={ChatInfoRoute} component={ChatInfoScreen} />
+          <Stack.Screen
+            name={TextEditorNewPostRoute}
+            options={({}) => ({
+              headerShown: false,
+            })}
+            component={TextEditorNewPostScreen}
+          />
+          <Stack.Screen
+            name={CommentRoute}
+            options={({}) => ({})}
+            component={CommentScreen}
+          />
+          <Stack.Screen
+            name={InformationGroupRoute}
+            component={InformationGroupScreen}
+          />
+          <Stack.Screen name={EditProfileRoute} component={EditProfileScreen} />
+        </Stack.Group>
+        <Stack.Screen
+          name={NotificationRoute}
+          options={{}}
+          component={NotificationScreen}
+        />
+        <Stack.Screen name={LoginRoute} component={LoginScreen} />
         <Stack.Screen name={SignupRoute} component={SignupScreen} />
       </Stack.Navigator>
     </NavigationContainer>

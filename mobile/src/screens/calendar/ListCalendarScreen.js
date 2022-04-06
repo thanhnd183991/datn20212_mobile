@@ -1,13 +1,9 @@
-import React, { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import { View, StyleSheet, FlatList, Text } from "react-native";
-import { users } from "../../utils/dummyData/users";
+import React, { useState } from "react";
+import { Platform, FlatList, StyleSheet, Text, View } from "react-native";
 import { ItemUser } from "../../components";
-import {
-  ProfileRoute,
-  CreateCalendarRoute,
-  DetailCalendarRoute,
-} from "../../constants/PathRoutes";
+import { DetailCalendarRoute } from "../../constants/PathRoutes";
+import { users } from "../../utils/dummyData/users";
 
 const ListCanlendarScreen = ({ navigation }) => {
   const [selectedValue, setSelectedValue] = useState(0);

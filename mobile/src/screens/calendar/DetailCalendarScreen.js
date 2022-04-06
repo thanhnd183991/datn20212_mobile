@@ -1,25 +1,15 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Platform,
-  Button,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { AntDesign, Feather, MaterialIcons } from "@expo/vector-icons";
 import React from "react";
-import { dateFormat } from "../../utils/dateUtils";
-import { users } from "../../utils/dummyData/users";
-import { Avatar, Button as ElButton, Icon } from "react-native-elements";
-import { AntDesign } from "@expo/vector-icons";
-import { fromNow } from "../../utils/dateUtils";
+import { StyleSheet, Text, Platform, View } from "react-native";
+import { Button as ElButton } from "react-native-elements";
 import StarRating from "react-native-star-rating";
-import { MaterialIcons } from "@expo/vector-icons";
 import { MyModal } from "../../components";
-import { Feather } from "@expo/vector-icons";
+import { fromNow } from "../../utils/dateUtils";
+import { users } from "../../utils/dummyData/users";
 
 const DetailCalendarScreen = ({ navigation }) => {
   const user = users[0];
+
   // const [date, setDate] = React.useState("2022-08-04");
   const date = fromNow("2022-04-06 10:00");
   const [desc, setDesc] = React.useState(null);

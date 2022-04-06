@@ -7,6 +7,7 @@ import {
   HomeRoute,
   CreateChatRoute,
   ListChatRoute,
+  ProfileRoute,
   ListUserRoute,
   ListCalendarRoute,
   StatisticRoute,
@@ -20,7 +21,11 @@ import {
   ListChatScreen,
   StatisticScreen,
 } from "../screens";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import HomeStackNav from "./HomeStackNav";
+import GroupStackNav from "./GroupStackNav";
+import CalendarStackNav from "./CalendarStackNav";
+import StatStackNav from "./StatStackNav";
+import UserStackNav from "./UserStackNav";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -33,40 +38,12 @@ export default function BottomTabNavigator() {
           return null;
         },
         tabBarActiveBackgroundColor: "lightgray",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
-
-        headerStyle: { backgroundColor: "#FDF5F1" },
-        // title: route.params.title,
-        headerRight: () => (
-          <View style={{ marginRight: 10 }}>
-            <Icon
-              name="bell"
-              style={{ width: 30 }}
-              type="font-awesome"
-              size={24}
-              color="gray"
-              onPress={() => navigation.navigate(NotificationRoute)}
-            />
-
-            <Badge
-              status="primary"
-              value={1}
-              containerStyle={{
-                position: "absolute",
-                top: -10,
-                right: -10,
-                fontSize: 13,
-              }}
-            />
-          </View>
-        ),
+        headerShown: false,
       })}
     >
       <BottomTab.Screen
         name={HomeRoute}
-        component={HomeScreen}
+        component={HomeStackNav}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon
@@ -81,7 +58,7 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name={ListGroupRoute}
-        component={ListGroupScreen}
+        component={GroupStackNav}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon
@@ -94,9 +71,10 @@ export default function BottomTabNavigator() {
           ),
         }}
       />
+
       <BottomTab.Screen
         name={CalendarRoute}
-        component={CalendarScreen}
+        component={CalendarStackNav}
         options={({ navigation }) => ({
           tabBarIcon: ({ color }) => (
             <Icon
@@ -107,46 +85,11 @@ export default function BottomTabNavigator() {
               color="gray"
             />
           ),
-          headerRight: () => (
-            <View style={{ marginRight: 10, flexDirection: "row" }}>
-              <TouchableOpacity
-                style={{ marginRight: 10 }}
-                onPress={() => navigation.navigate(ListCalendarRoute)}
-              >
-                <MaterialCommunityIcons
-                  name="account-details"
-                  size={30}
-                  color="gray"
-                />
-              </TouchableOpacity>
-              <View style={{ alignItems: "center", justifyContent: "center" }}>
-                <Icon
-                  name="bell"
-                  style={{ width: 30 }}
-                  type="font-awesome"
-                  size={24}
-                  color="gray"
-                  onPress={() => navigation.navigate(NotificationRoute)}
-                />
-
-                <Badge
-                  status="primary"
-                  value={1}
-                  containerStyle={{
-                    position: "absolute",
-                    top: -10,
-                    right: -5,
-                    fontSize: 13,
-                  }}
-                />
-              </View>
-            </View>
-          ),
         })}
       />
       <BottomTab.Screen
         name={StatisticRoute}
-        component={StatisticScreen}
+        component={StatStackNav}
         options={{
           tabBarIcon: ({ color }) => (
             <Icon
@@ -160,66 +103,17 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name={ListChatRoute}
-        component={ListChatScreen}
+        name={ProfileRoute}
+        component={UserStackNav}
         options={({ navigation }) => ({
           tabBarIcon: ({ color }) => (
             <Icon
-              name="comments"
+              name="user"
               type="font-awesome"
               style={{ width: 25 }}
               size={24}
               color="gray"
             />
-          ),
-          tabBarBadge: 3,
-          headerRight: () => (
-            <View
-              style={{
-                flexDirection: "row",
-                marginRight: 10,
-                alignItems: "center",
-              }}
-            >
-              <View style={{ marginRight: 10 }}>
-                <Icon
-                  name="bell"
-                  style={{ width: 30 }}
-                  type="font-awesome"
-                  size={24}
-                  color="gray"
-                  onPress={() => navigation.navigate(NotificationRoute)}
-                />
-
-                <Badge
-                  status="primary"
-                  value={1}
-                  containerStyle={{
-                    position: "absolute",
-                    top: -10,
-                    right: -10,
-                    fontSize: 13,
-                  }}
-                />
-              </View>
-              <View
-                style={{
-                  backgroundColor: "lightgray",
-                  padding: 6,
-                  borderRadius: 20,
-                  marginLeft: 10,
-                }}
-              >
-                <Icon
-                  name="pencil"
-                  style={{ width: 30 }}
-                  type="font-awesome"
-                  size={24}
-                  color="gray"
-                  onPress={() => navigation.navigate(CreateChatRoute)}
-                />
-              </View>
-            </View>
           ),
         })}
       />

@@ -1,9 +1,8 @@
-import { View, Text, StyleSheet, Platform, Button } from "react-native";
-import React from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { dateFormat } from "../../utils/dateUtils";
+import React from "react";
+import { StyleSheet, View, Platform } from "react-native";
+import { Button } from "react-native-elements";
 import { users } from "../../utils/dummyData/users";
-import { Avatar } from "react-native-elements";
 
 const DatePicker = ({ date, setDate }) => {
   const user = users[0];

@@ -1,16 +1,9 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Platform,
-  Button,
-  TextInput,
-} from "react-native";
+import { View, Text, StyleSheet, Platform, TextInput } from "react-native";
 import React from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { dateFormat } from "../../utils/dateUtils";
 import { users } from "../../utils/dummyData/users";
-import { Avatar } from "react-native-elements";
+import { Avatar, Button } from "react-native-elements";
 import { DatePicker } from "../../components";
 
 const CreateCalendarScreen = ({ navigation }) => {
