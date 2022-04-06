@@ -16,7 +16,12 @@ import {
   TextEditorNewPostRoute,
   ChatInfoRoute,
   ListChatRoute,
+  ListCalendarRoute,
   CreateChatRoute,
+  CreateCalendarRoute,
+  CalendarRoute,
+  DetailCalendarRoute,
+  StatisticRoute,
 } from "../constants/PathRoutes";
 import {
   EditProfileScreen,
@@ -30,15 +35,21 @@ import {
   SignupScreen,
   TestScreen,
   CreateChatScreen,
+  CreateCalendarScreen,
   CommentScreen,
   TextEditorNewPostScreen,
   ListUserScreen,
   ChatInfoScreen,
+  DetailCalendarScreen,
+  ListCalendarScreen,
   ListChatScreen,
+  CalendarScreen,
+  StatisticScreen,
 } from "../screens/";
 import BottomTabNavigator from "./BottomTabNav";
 import { Icon, Badge } from "react-native-elements";
 import { TouchableOpacity, View } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const config = {
   animation: "spring",
@@ -58,13 +69,24 @@ export default function StackScreen() {
     <NavigationContainer>
       <Stack.Navigator>
         {/* <Stack.Screen name={"Test"} component={TestScreen} /> */}
-        <Stack.Screen name={CreateChatRoute} component={CreateChatScreen} />
-
         <Stack.Screen
           options={{ headerShown: false }}
           name={RootRoute}
           component={BottomTabNavigator}
         />
+        <Stack.Screen name={CreateChatRoute} component={CreateChatScreen} />
+        <Stack.Screen name={StatisticRoute} component={StatisticScreen} />
+        <Stack.Screen name={CalendarRoute} component={CalendarScreen} />
+        <Stack.Screen name={ListCalendarRoute} component={ListCalendarScreen} />
+        <Stack.Screen
+          name={DetailCalendarRoute}
+          component={DetailCalendarScreen}
+        />
+        <Stack.Screen
+          name={CreateCalendarRoute}
+          component={CreateCalendarScreen}
+        />
+
         <Stack.Group screenOptions={{ presentation: "modal" }}>
           <Stack.Screen name={ChatInfoRoute} component={ChatInfoScreen} />
           <Stack.Screen

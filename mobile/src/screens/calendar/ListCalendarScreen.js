@@ -1,26 +1,16 @@
 import React, { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  Text,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, FlatList, Text } from "react-native";
 import { users } from "../../utils/dummyData/users";
 import { ItemUser } from "../../components";
 import {
-  NotificationRoute,
   ProfileRoute,
   CreateCalendarRoute,
-  ListCalendarRoute,
+  DetailCalendarRoute,
 } from "../../constants/PathRoutes";
 
-const CalendarScreen = ({ navigation }) => {
-  const [selectedValue, setSelectedValue] = useState("TA");
-  const handleSendRequestUser = () => {
-    navigation.navigate(CreateCalendarRoute);
-  };
+const ListCanlendarScreen = ({ navigation }) => {
+  const [selectedValue, setSelectedValue] = useState(0);
 
   return (
     <View style={styles.container}>
@@ -37,11 +27,8 @@ const CalendarScreen = ({ navigation }) => {
           }}
           onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
         >
-          <Picker.Item label="Teaching Assistant" value="TA" />
-          <Picker.Item label="Examination Assistant" value="EA" />
-          <Picker.Item label="Labor Assistant" value="LA" />
-          <Picker.Item label="Psychological Assistant" value="PA" />
-          <Picker.Item label="CSKH" value="CSKH" />
+          <Picker.Item label="Đã lên lịch" value={1} />
+          <Picker.Item label="Đang chờ duyệt" value={0} />
         </Picker>
       </View>
       <Text style={{ fontWeight: "bold", fontSize: 16, marginBottom: 10 }}>
@@ -53,9 +40,7 @@ const CalendarScreen = ({ navigation }) => {
           renderItem={({ item }) => (
             <ItemUser
               user={item}
-              handleClick={() => navigation.push(ProfileRoute)}
-              handleSendRequestUser={handleSendRequestUser}
-              type="calendar"
+              handleClick={() => navigation.push(DetailCalendarRoute)}
             />
           )}
           keyExtractor={(item, index) => index}
@@ -73,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CalendarScreen;
+export default ListCanlendarScreen;

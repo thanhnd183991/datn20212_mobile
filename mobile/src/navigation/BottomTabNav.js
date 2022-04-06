@@ -1,12 +1,14 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { View } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import { Badge, Icon } from "react-native-elements";
 import {
   CalendarRoute,
   ListGroupRoute,
   HomeRoute,
+  CreateChatRoute,
   ListChatRoute,
   ListUserRoute,
+  ListCalendarRoute,
   StatisticRoute,
   TextEditorNewPostRoute,
   NotificationRoute,
@@ -18,6 +20,7 @@ import {
   ListChatScreen,
   StatisticScreen,
 } from "../screens";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -94,7 +97,7 @@ export default function BottomTabNavigator() {
       <BottomTab.Screen
         name={CalendarRoute}
         component={CalendarScreen}
-        options={{
+        options={({ navigation }) => ({
           tabBarIcon: ({ color }) => (
             <Icon
               name="calendar"
@@ -104,7 +107,42 @@ export default function BottomTabNavigator() {
               color="gray"
             />
           ),
-        }}
+          headerRight: () => (
+            <View style={{ marginRight: 10, flexDirection: "row" }}>
+              <TouchableOpacity
+                style={{ marginRight: 10 }}
+                onPress={() => navigation.navigate(ListCalendarRoute)}
+              >
+                <MaterialCommunityIcons
+                  name="account-details"
+                  size={30}
+                  color="gray"
+                />
+              </TouchableOpacity>
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <Icon
+                  name="bell"
+                  style={{ width: 30 }}
+                  type="font-awesome"
+                  size={24}
+                  color="gray"
+                  onPress={() => navigation.navigate(NotificationRoute)}
+                />
+
+                <Badge
+                  status="primary"
+                  value={1}
+                  containerStyle={{
+                    position: "absolute",
+                    top: -10,
+                    right: -5,
+                    fontSize: 13,
+                  }}
+                />
+              </View>
+            </View>
+          ),
+        })}
       />
       <BottomTab.Screen
         name={StatisticRoute}
@@ -178,7 +216,7 @@ export default function BottomTabNavigator() {
                   type="font-awesome"
                   size={24}
                   color="gray"
-                  onPress={() => navigation.navigate(ListUserRoute)}
+                  onPress={() => navigation.navigate(CreateChatRoute)}
                 />
               </View>
             </View>

@@ -15,7 +15,10 @@ export const GroupRoute = "1 Nhóm";
 export const ListGroupRoute = "Nhóm";
 export const InformationGroupRoute = "Thông tin nhóm";
 //lich
-export const CalendarRoute = "Lịch";
+export const CalendarRoute = "Giao dịch";
+export const CreateCalendarRoute = "Tạo giao dịch";
+export const DetailCalendarRoute = "Thông tin giao dịch";
+export const ListCalendarRoute = "Danh sách giao dịch";
 //thong ke
 export const StatisticRoute = "Thống kê";
 //thong bao

@@ -64,7 +64,15 @@ const ItemUser = ({
       <Button
         type="outline"
         title={added ? "Đã thêm" : "Thêm"}
-        onPress={!added && handleSendRequestUser}
+        onPress={!added ? handleSendRequestUser : () => {}}
+        buttonStyle={{ paddingVertical: 1, borderRadius: 10 }}
+      />
+    )}
+    {type === "calendar" && (
+      <Button
+        type="outline"
+        title={"Đặt lịch"}
+        onPress={handleSendRequestUser}
         buttonStyle={{ paddingVertical: 1, borderRadius: 10 }}
       />
     )}

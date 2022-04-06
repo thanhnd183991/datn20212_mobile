@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
 import "dayjs/locale/vi";
-
 export const getDateOfMonth = (d) => {
   return dayjs(d).date();
 };
@@ -20,5 +19,9 @@ export const fromNow = (d) => {
 };
 
 export const dateFormat = (d, format) => {
+  var localizedFormat = require("dayjs/plugin/localizedFormat");
+  dayjs.extend(localizedFormat);
+  var relativeTime = require("dayjs/plugin/relativeTime");
+  dayjs.extend(relativeTime);
   return dayjs(d).locale("vi").format(format);
 };

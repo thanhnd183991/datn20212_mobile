@@ -81,16 +81,16 @@ const CreateChatScreen = () => {
             Tạo nhóm chat
           </Text>
         </TouchableOpacity>
-        {isGroup && (
+        {isGroup ? (
           <Button
             type="outline"
             title="Tạo"
             onPress={() => {}}
             buttonStyle={{ paddingVertical: 1, borderRadius: 10 }}
           />
-        )}
+        ) : null}
       </View>
-      {isGroup && group.length > 0 && (
+      {isGroup && group.length > 0 ? (
         <View>
           <FlatList
             data={group}
@@ -99,18 +99,18 @@ const CreateChatScreen = () => {
               <View style={{ alignItems: "center", marginRight: 5 }}>
                 <Avatar
                   containerStyle={{ backgroundColor: "#C3A89B" }}
-                  size={40}
+                  size={50}
                   rounded
                   source={{ uri: item.profile_media_url }}
                 />
-                <Text numberOfLines={1} style={{ maxWidth: 40 }}>
-                  {item.name}
+                <Text numberOfLines={1} style={{ maxWidth: 50 }}>
+                  {item?.name || "a"}
                 </Text>
                 <Pressable
                   onPress={() => handleClickDeleteUser(item)}
                   style={{ position: "absolute", top: 0, right: 0 }}
                 >
-                  <AntDesign name="closecircleo" size={15} color="black" />
+                  <AntDesign name="closecircleo" size={20} color="black" />
                 </Pressable>
               </View>
             )}
@@ -118,7 +118,7 @@ const CreateChatScreen = () => {
             // extraData={selectedId}
           />
         </View>
-      )}
+      ) : null}
 
       <Text style={{ marginBottom: 5, fontWeight: "bold", color: "gray" }}>
         Gợi ý
