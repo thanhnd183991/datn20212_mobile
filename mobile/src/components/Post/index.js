@@ -5,6 +5,7 @@ import { users } from "../../utils/dummyData/users";
 import Layout from "../../constants/Layout";
 import styles from "./styles";
 import { fromNow } from "../../utils/dateUtils";
+import ContentHyperlink from "../ContentHyperlink";
 import { CommentRoute } from "../../constants/PathRoutes";
 
 const Post = ({ post, navigation }) => {
@@ -35,7 +36,7 @@ const Post = ({ post, navigation }) => {
         </View>
       </View>
       <View style={styles.content}>
-        <Text>{post.content}</Text>
+        <ContentHyperlink contentText={post.content} />
       </View>
       {post.number_of_images && (
         <View>

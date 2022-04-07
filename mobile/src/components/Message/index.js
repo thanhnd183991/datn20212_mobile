@@ -12,6 +12,7 @@ import {
 import Layout from "../../constants/Layout";
 import { Ionicons } from "@expo/vector-icons";
 import AudioPlayer from "../AudioPlayer";
+import ContentHyperlink from "../ContentHyperlink";
 import { chat_room } from "../../utils/dummyData/chat_room";
 import MessageReply from "../MessageReply";
 // import Lightbox from "react-native-lightbox-v2";
@@ -137,8 +138,9 @@ const Message = ({ message, setAsMessageReply, lastMessage }) => {
       {soundURI && <AudioPlayer soundURI={soundURI} />}
       <View>
         {message.content && (
-          <Text
-            style={{
+          <ContentHyperlink
+            contentText={message.content}
+            styleMessage={{
               color: isMe ? "black" : "white",
               backgroundColor: isMe ? grey : blue,
               paddingVertical: 5,
@@ -147,9 +149,7 @@ const Message = ({ message, setAsMessageReply, lastMessage }) => {
               borderTopLeftRadius: isMe ? 10 : 0,
               borderTopRightRadius: isMe ? 0 : 10,
             }}
-          >
-            {message.content}
-          </Text>
+          />
         )}
 
         {isMe &&

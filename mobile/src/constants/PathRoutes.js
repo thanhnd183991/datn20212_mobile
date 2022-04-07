@@ -1,5 +1,10 @@
 //root
 export const RootRoute = "Root";
+export const RootHomeRoute = "RootHomeBottom";
+export const RootGroupRoute = "RootGroupBottom";
+export const RootCalendarRoute = "RootCalendarBottom";
+export const RootStatRoute = "RootStatBottom";
+export const RootUserRoute = "RootUserBottom";
 //user
 export const LoginRoute = "Đăng nhập";
 export const HomeRoute = "Trang chủ";

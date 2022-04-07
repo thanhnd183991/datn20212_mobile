@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     color: "gray",
   },
   content: {
-    marginBottom: 10,
-    marginLeft: 10,
+    padding: 10,
+    paddingTop: 0,
   },
   calCurrentImage: {
     position: "absolute",

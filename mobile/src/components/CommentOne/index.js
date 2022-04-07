@@ -12,6 +12,7 @@ import { comments } from "../../utils/dummyData/comments";
 import { users } from "../../utils/dummyData/users";
 import { fromNow } from "../../utils/dateUtils";
 import styles from "./styles";
+import ContentHyperlink from "../ContentHyperlink";
 
 const CommentOne = ({ comment, handleCommentInput, deep }) => {
   const user = users[0];
@@ -30,7 +31,10 @@ const CommentOne = ({ comment, handleCommentInput, deep }) => {
         <View style={styles.commentContentWrapper}>
           <View style={styles.commentContent}>
             <Text style={{ fontWeight: "bold" }}>{user.user_name}</Text>
-            <Text style={styles.contentText}>{comment.content}</Text>
+            <ContentHyperlink
+              styleComment={styles.contentText}
+              contentText={comment.content}
+            />
           </View>
           <View style={styles.commentActions}>
             <Text style={styles.textAction}>{fromNow(comment.created_at)}</Text>

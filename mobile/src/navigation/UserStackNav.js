@@ -16,7 +16,17 @@ export default function UserStackNav() {
     <Stack.Navigator
       screenOptions={({ navigation }) => ({
         headerRight: () => (
-          <HeaderRight navigation={navigation} nameIcon="logout" />
+          <HeaderRight
+            onPress={() =>
+              navigation.navigate("Root", {
+                screen: ProfileRoute,
+                params: {
+                  screen: ListChatRoute,
+                },
+              })
+            }
+            nameIcon="logout"
+          />
         ),
       })}
     >

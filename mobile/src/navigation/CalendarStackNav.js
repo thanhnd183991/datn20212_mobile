@@ -5,6 +5,8 @@ import {
   CreateCalendarRoute,
   DetailCalendarRoute,
   ListCalendarRoute,
+  RootCalendarRoute,
+  RootUserRoute,
 } from "../constants/PathRoutes";
 import {
   CalendarScreen,
@@ -13,6 +15,7 @@ import {
   ListCalendarScreen,
 } from "../screens/";
 import { HeaderRight } from "../components";
+import { ListChatRoute, ProfileRoute } from "../constants/PathRoutes";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 const config = {
@@ -34,17 +37,22 @@ export default function CalendarStackNav() {
       screenOptions={({ navigation }) => ({
         headerRight: () => (
           <View style={{ flexDirection: "row" }}>
-            <TouchableOpacity
-              style={{ marginRight: 10 }}
+            <HeaderRight
               onPress={() => navigation.navigate(ListCalendarRoute)}
-            >
-              <MaterialCommunityIcons
-                name="account-details"
-                size={28}
-                color="gray"
-              />
-            </TouchableOpacity>
-            <HeaderRight navigation={navigation} />,
+              nameIcon="description"
+            />
+            <View style={{ marginRight: 10 }} />
+            <HeaderRight
+              onPress={() =>
+                navigation.navigate("Root", {
+                  screen: RootUserRoute,
+                  params: {
+                    screen: ListChatRoute,
+                  },
+                })
+              }
+              nameIcon="mode-comment"
+            />
           </View>
         ),
       })}

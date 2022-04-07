@@ -1,5 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { HomeRoute } from "../constants/PathRoutes";
+import {
+  HomeRoute,
+  RootUserRoute,
+  ListChatRoute,
+} from "../constants/PathRoutes";
 import { HomeScreen } from "../screens/";
 import { HeaderRight } from "../components";
 
@@ -20,7 +24,19 @@ export default function HomeStackScreen() {
   return (
     <Stack.Navigator
       screenOptions={({ navigation }) => ({
-        headerRight: () => <HeaderRight navigation={navigation} />,
+        headerRight: () => (
+          <HeaderRight
+            onPress={() =>
+              navigation.navigate("Root", {
+                screen: RootUserRoute,
+                params: {
+                  screen: ListChatRoute,
+                },
+              })
+            }
+            nameIcon="mode-comment"
+          />
+        ),
       })}
     >
       <Stack.Screen name={HomeRoute} component={HomeScreen} />

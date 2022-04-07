@@ -5,16 +5,30 @@ import {
   Text,
   FlatList,
   SafeAreaView,
+  RefreshControl,
 } from "react-native";
 import React from "react";
 import { users } from "../../utils/dummyData/users";
 import { Avatar } from "react-native-elements";
 import { posts } from "../../utils/dummyData/posts";
-import { Post } from "../../components/";
+import { Post } from "../../components";
 import { ProfileRoute } from "../../constants/PathRoutes";
 
 const HomeScreen = ({ navigation }) => {
   const user = users[0];
+  const [refreshing, setRefreshing] = React.useState(false);
+  const [text, setText] = React.useState("");
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      posts.unshift(posts[0]);
+      setRefreshing(false);
+    }, 2000);
+  }, []);
+  const handleToEnd = () => {
+    setText("scroll to end");
+  };
+
   const HeaderHomeScreen = () => (
     <Pressable
       onPress={() => navigation.navigate(ProfileRoute)}
@@ -44,9 +58,15 @@ const HomeScreen = ({ navigation }) => {
         ListHeaderComponent={HeaderHomeScreen}
         data={posts}
         renderItem={({ item }) => <Post post={item} navigation={navigation} />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item, index) => index}
         // extraData={selectedId}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        onEndReached={handleToEnd}
+        onEndReachedThreshold={1}
       />
+      {text ? <Text> {text}</Text> : null}
     </SafeAreaView>
   );
 };

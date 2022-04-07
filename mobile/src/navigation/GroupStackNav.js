@@ -4,6 +4,8 @@ import {
   GroupRoute,
   InformationGroupRoute,
   ListGroupRoute,
+  RootUserRoute,
+  ListChatRoute,
 } from "../constants/PathRoutes";
 import {
   GroupScreen,
@@ -29,7 +31,19 @@ export default function StackScreen() {
   return (
     <Stack.Navigator
       screenOptions={({ navigation }) => ({
-        headerRight: () => <HeaderRight navigation={navigation} />,
+        headerRight: () => (
+          <HeaderRight
+            onPress={() =>
+              navigation.navigate("Root", {
+                screen: RootUserRoute,
+                params: {
+                  screen: ListChatRoute,
+                },
+              })
+            }
+            nameIcon="mode-comment"
+          />
+        ),
       })}
     >
       <Stack.Screen name={ListGroupRoute} component={ListGroupScreen} />

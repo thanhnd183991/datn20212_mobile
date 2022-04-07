@@ -12,4 +12,5 @@ export { default as MessageInput } from "./MessageInput";
 export { default as MyModal } from "./MyModal";
 export { default as DatePicker } from "./DatePicker";
 export { default as ItemStat } from "./ItemStat";
+export { default as ContentHyperlink } from "./ContentHyperlink";
 export { default as HeaderRight } from "./HeaderRight";

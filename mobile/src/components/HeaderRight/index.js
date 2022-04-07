@@ -2,19 +2,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 import { Badge } from "react-native-elements";
-import { ListChatRoute, ProfileRoute } from "../../constants/PathRoutes";
 
-const HeaderRight = ({ navigation, nameIcon }) => {
+const HeaderRight = ({ onPress, nameIcon }) => {
   return (
     <TouchableOpacity
-      onPress={() =>
-        navigation.navigate("Root", {
-          screen: ProfileRoute,
-          params: {
-            screen: ListChatRoute,
-          },
-        })
-      }
+      onPress={onPress}
       style={{ alignItems: "center", justifyContent: "center" }}
     >
       <MaterialIcons
@@ -23,15 +15,15 @@ const HeaderRight = ({ navigation, nameIcon }) => {
         color="gray"
       />
 
-      {!nameIcon ? (
+      {nameIcon === "mode-comment" ? (
         <Badge
           status="primary"
           value={1}
           containerStyle={{
             position: "absolute",
-            top: -10,
+            top: -7,
             right: -5,
-            fontSize: 13,
+            fontSize: 12,
           }}
         />
       ) : null}

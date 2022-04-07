@@ -13,6 +13,11 @@ import {
   StatisticRoute,
   TextEditorNewPostRoute,
   NotificationRoute,
+  RootHomeRoute,
+  RootGroupRoute,
+  RootCalendarRoute,
+  RootStatRoute,
+  RootUserRoute,
 } from "../constants/PathRoutes";
 import {
   CalendarScreen,
@@ -32,7 +37,7 @@ const BottomTab = createBottomTabNavigator();
 export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName={HomeRoute}
+      initialRouteName={"RootBottom"}
       screenOptions={({ navigation }) => ({
         tabBarLabel: () => {
           return null;
@@ -42,7 +47,7 @@ export default function BottomTabNavigator() {
       })}
     >
       <BottomTab.Screen
-        name={HomeRoute}
+        name={RootHomeRoute}
         component={HomeStackNav}
         options={{
           tabBarIcon: ({ color }) => (
@@ -57,7 +62,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name={ListGroupRoute}
+        name={RootGroupRoute}
         component={GroupStackNav}
         options={{
           tabBarIcon: ({ color }) => (
@@ -73,7 +78,7 @@ export default function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name={CalendarRoute}
+        name={RootCalendarRoute}
         component={CalendarStackNav}
         options={({ navigation }) => ({
           tabBarIcon: ({ color }) => (
@@ -88,7 +93,7 @@ export default function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name={StatisticRoute}
+        name={RootStatRoute}
         component={StatStackNav}
         options={{
           tabBarIcon: ({ color }) => (
@@ -103,7 +108,7 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name={ProfileRoute}
+        name={RootUserRoute}
         component={UserStackNav}
         options={({ navigation }) => ({
           tabBarIcon: ({ color }) => (

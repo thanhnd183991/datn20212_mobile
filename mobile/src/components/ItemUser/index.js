@@ -34,7 +34,7 @@ const ItemUser = ({
         rounded
         source={{ uri: user.profile_media_url }}
       />
-      <Text style={{ fontWeight: "bold" }}>{user.user_name}</Text>
+      <Text style={{ fontWeight: "bold" }}>{user?.user_name || "Text"}</Text>
     </TouchableOpacity>
     {type === "friend" && (
       <Button
