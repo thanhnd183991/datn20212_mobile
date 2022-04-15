@@ -10,7 +10,7 @@ import {
   Pressable,
 } from "react-native";
 import Layout from "../../constants/Layout";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, AntDesign } from "@expo/vector-icons";
 import AudioPlayer from "../AudioPlayer";
 import ContentHyperlink from "../ContentHyperlink";
 import { chat_room } from "../../utils/dummyData/chat_room";
@@ -151,7 +151,42 @@ const Message = ({ message, setAsMessageReply, lastMessage }) => {
             }}
           />
         )}
-
+        {message?.reaction?.length > 0 && (
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              marginRight: 5,
+            }}
+          >
+            <Pressable
+              style={{
+                flexDirection: "row",
+                marginTop: -7,
+                paddingHorizontal: 3,
+                paddingVertical: 2,
+                backgroundColor: "white",
+                borderRadius: 20,
+                borderWidth: 1,
+                borderColor: "lightgray",
+              }}
+            >
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <AntDesign name="like2" size={13} color="#f7eb00" />
+              </View>
+              {message.reaction.length > 1 && (
+                <Text style={{ marginLeft: 3, fontSize: 12, color: "gray" }}>
+                  {message.reaction.length}{" "}
+                </Text>
+              )}
+            </Pressable>
+          </View>
+        )}
         {isMe &&
           !!message.status &&
           message.status !== "" &&

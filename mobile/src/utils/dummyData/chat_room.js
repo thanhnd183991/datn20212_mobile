@@ -30,6 +30,7 @@ export const chat_room = {
         "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-674010.jpg&fm=jpg",
       ],
       status: "SENT",
+      reaction: ["like"],
       replyTo: "m2",
     },
     {
@@ -41,6 +42,7 @@ export const chat_room = {
         name: "Elon Musk",
       },
       status: "SENT",
+      reaction: ["like", "love"],
     },
     {
       id: "m3",
@@ -52,6 +54,7 @@ export const chat_room = {
       },
       status: "SENT",
       replyTo: "m4",
+      reaction: ["like", "haha"],
     },
     {
       id: "m4",
